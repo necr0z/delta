@@ -1,0 +1,26 @@
+;>
+- Developer: ~doppeg-tonwel/~lagrev-nocfep
+- License: MIT
+- App link: Nah ill pass
+- Source repo: [https://github.com/necr0z/%delta](https://github.com/necr0z/%delta)
+- Bug reports: It's fine
+
+## %Delta
+The delta app is part of App School Live, markdown docs can be found over here: https://github.com/sigilante/curriculum/blob/master/asl-2023.1/asl2.md
+
+2 Main actions:
+1. allows one to push some numbers onto a stack, tied to a ship, such as zod. `:delta &delta-action [%push ~zod 1]`
+2. pop the most recently added number off a ship. `:delta &delta-action [%pop ~zod]`
+
+Note that one can only perform these actions on their own ship and its respective moons due to enforcement via: `?:  =(our.bowl target.act)`. (I think) Or just spawn devships and play around on localhost.
+
+To peek/scry at the values:
+`.^((list @) %gx /~sampel-palnet/delta=/values/noun)`
+But replace ~sampel-palnet with your own ship name, of course.
+
+### Check out ASL Lesson #4 on React, and self-learn a bit of react hooks to be able to make a full app, mm hmm very cool
+###### deeznuts
+
+Tests can be found under tests/app/delta.hoon
+
+2 Unit tests passed: https://imgur.com/a/2X2sapu

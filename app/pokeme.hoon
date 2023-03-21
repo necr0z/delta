@@ -1,0 +1,59 @@
+/+  default-agent, dbug
+|%
++$  versioned-state
+  $%  state-0
+  ==
++$  state-0  [%0 val=@ud]
++$  card  card:agent:gall
+--
+%-  agent:dbug
+=|  state-0
+=*  state  -
+^-  agent:gall
+|_  =bowl:gall
++*  this  .
+    def   ~(. (default-agent this %.n) bowl)
+::
+++  on-init
+  ^-  (quip card _this)
+  `this
+::
+++  on-save
+  ^-  vase
+  !>(state)
+::
+++  on-load
+  |=  old-state=vase
+  ^-  (quip card _this)
+  =/  old  !<(versioned-state old-state)
+  ?-  -.old
+    %0  `this(state old)
+  ==
+::
+++  on-poke
+  |=  [=mark =vase]
+  ^-  (quip card _this)
+  ?+    mark  (on-poke:def mark vase)
+      %noun
+    =/  action  !<(?(%inc %dec %dub) vase)  :: added own double action, x2 value
+    ?-    action
+      %inc  `this(val +(val))
+    ::
+        %dec
+      ?:  =(0 val)
+        ~|  "Can't decrement - already zero!"
+        !!
+      `this(val (dec val))
+
+      %dub  ::  double action times 2 
+        `this(val (mul val 2))
+    ==
+  ==
+::
+++  on-watch  on-watch:def
+++  on-leave  on-leave:def
+++  on-peek   on-peek:def
+++  on-agent  on-agent:def
+++  on-arvo   on-arvo:def
+++  on-fail   on-fail:def
+--
