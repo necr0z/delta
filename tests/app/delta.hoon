@@ -11,10 +11,12 @@
       [~ ~]
       [run `@uvJ`(shax run) (add (mul run ~s1) *time) [~zod %delta ud+run]]
   ==
-::  Added state-0 in the bowl arm
+::
+::  Added state-0 arm
+::
 +$  state-0
   $:  [%0 values=(list @)]
-==
+  ==
 --
 |%
 ++  test-push
@@ -30,7 +32,7 @@
   =^  move  agent  (~(on-poke agent (bowl run)) %delta-action !>([%pop ~zod]))
   =+  !<(=state-0 on-save:agent)
   %+  expect-eq
-  :: oh shit empty list returns ~
+  ::  empty list returns ~
     !>  ~
     !>  values.state-0
 --
